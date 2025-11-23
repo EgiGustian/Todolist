@@ -27,7 +27,7 @@
         // Tampilkan deskripsi Todo
         echo $todo['task'];
         // Jika Todo belum selesai, tampilkan link untuk menandai sebagai selesai
-        if (!isset($todo['is_complated']) || !$todo['is_complated']) {
+        if (!isset($todo['is_completed']) || !$todo['is_completed']) {
           echo ' ';
           echo '<a href="?action=complete&id=' . $todo['id'] . '">Mark Complete</a>';
         }

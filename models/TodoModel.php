@@ -68,14 +68,14 @@ class TodoModel
    * @param int $is_completed Status yang akan diperbarui
    * @return boolean
    */
-  public function updateTodoStatus($id, $is_complated)
+  public function updateTodoStatus($id, $is_completed)
   {
-    $query = "UPDATE " . $this->table_name . " SET is_complated = :is_complated WHERE id = :id";
+    $query = "UPDATE " . $this->table_name . " SET is_completed = :is_completed WHERE id = :id";
     $stmt = $this->conn->prepare($query);
     // Normalize values and bind with explicit types
-    $is_complated = ((int)$is_complated) ? 1 : 0;
+    $is_completed = ((int)$is_completed) ? 1 : 0;
     $id = (int)$id;
-    $stmt->bindParam(":is_complated", $is_complated, PDO::PARAM_INT);
+    $stmt->bindParam(":is_completed", $is_completed, PDO::PARAM_INT);
     $stmt->bindParam(":id", $id, PDO::PARAM_INT);
     return $stmt->execute();
   }
